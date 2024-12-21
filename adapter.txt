@@ -1,0 +1,40 @@
+package com.assignment.question.adapter;
+import com.assignment.question.TravelInsuranceAdapter;
+
+public class AutoProtectAdapter implements TravelInsuranceAdapter { 
+    private AutoProtectApi autoProtectApi = new AutoProtectApi();
+    public void add(String reference, Double amount){
+        autoProtectApi.addclaim(amount);
+
+    }
+
+    public ClaimStatus get(String reference){
+        AutoProtectStatus autoProtectstatus = autoProtectApi.getStatus(reference);
+        if(autoProtectstatus.equals(AutoProtectStatus.APPROVED)){
+            return ClaimStatus.APPROVED;
+        }
+        return ClaimStatus.PENDING;
+    }
+
+}
+
+
+package com.assignment.question.adapter;
+import com.assignment.question.TravelInsuranceAdapter;
+
+public class TravelGaurdAdapter implements TravelInsuranceAdapter { 
+    private TravelGuardApi travelGuardApi = new TravelGuardApi();
+    public void add(String reference, Double amount){
+        travelGuardApi.submitclaim(reference,amount);
+
+    }
+
+    public ClaimStatus get(String reference){
+        String status = travelGuardApi.getClaimStatus(reference);
+        if(status.equals("APPROVED")){
+            return ClaimStatus.APPROVED;
+        }
+        return ClaimStatus.PENDING;
+    }
+
+}

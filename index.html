@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calulate Torque</title>
+</head>
+<body>
+	<form name="Torquecalc">
+		Net Engine Torque: <input type="text" name="textnum1">
+		<br>
+		First Gear Ratio:<input type="text" name="textnum2">
+		<br>
+		Transfer case low gear:<input type="text" name="textnum3">
+		<br>
+		Torque stall ratio:<input type="text" name="textnum4">
+		<br>
+		Mechanical Efficiency:<input type="text" name="textnum4">
+		<br>
+		Result:<input type="text" name="textres">
+		<br>
+		<input type="button" name="Calculate" onclick="prodvalue()">
+	</form>
+	<script type="text/javascript">
+		
+		function prodvalue()
+			{
+				var num1,num2,num3,num4,num5,res;
+				num1=Number(document.Torquecalc.textnum1.value);
+				num2=Number(document.Torquecalc.textnum2.value);
+				num3=Number(document.Torquecalc.textnum3.value);
+				num4=Number(document.Torquecalc.textnum4.value);
+				num5=Number(document.Torquecalc.textnum5.value);
+				res = num1*num2*num3*num4*num5;
+				document.Torquecalc.textres.value=res;
+				
+				
+		
+		
+		
+		
+		
+		}
+	
+	
+	</script>
+</body>
+</html>
